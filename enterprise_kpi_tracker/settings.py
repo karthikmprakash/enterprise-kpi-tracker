@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-mxl3n7wk6c_rihc92@@m!#2$a-1q2mj6xa54uie1%%w(3@q3fu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://enterprise-kpi-tracker-staging.dokploy.karthikmprakash.online"]
+ALLOWED_HOSTS = ["enterprise-kpi-tracker-staging.dokploy.karthikmprakash.online"]
 
 
 # Application definition
