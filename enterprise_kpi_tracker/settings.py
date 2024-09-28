@@ -10,29 +10,24 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-import os
 from pathlib import Path
-
-import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, True),
-    APP_URL=(str, "localhost"),
-)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("DJANGO_SECRET_KEY")
+SECRET_KEY = "django-insecure-mxl3n7wk6c_rihc92@@m!#2$a-1q2mj6xa54uie1%%w(3@q3fu"
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    env("APP_URL"),
+    "localhost",
+    "enterprise-kpi-tracker-staging.dokploy.karthikmprakash.online",
 ]
 
 
