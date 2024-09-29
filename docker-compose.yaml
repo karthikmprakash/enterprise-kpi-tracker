@@ -2,5 +2,5 @@ services:
   django:
     build: .
     container_name: kpi_tracker
-    command: python3 manage.py runserver 0.0.0.0:3000
+    command: gunicorn --workers 4 -b 0.0.0.0:3000 --timeout 600 enterprise_kpi_tracker.wsgi:application
     restart: always
