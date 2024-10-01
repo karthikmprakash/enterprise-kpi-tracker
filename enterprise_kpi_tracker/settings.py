@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+
+env_path = Path("..") / ".env"
+load_dotenv(dotenv_path=env_path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,7 +48,24 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "main_app",
+    "social_django",
 ]
+
+SOCIAL_AUTH_TRAILING_SLASH = False
+# SOCIAL_AUTH_AUTH0_DOMAIN = os.getenv("APP_DOMAIN")
+# SOCIAL_AUTH_AUTH0_KEY = os.getenv("APP_CLIENT_ID")
+# SOCIAL_AUTH_AUTH0_SECRET = os.getenv("APP_CLIENT_SECRET")
+
+SOCIAL_AUTH_AUTH0_DOMAIN = 
+SOCIAL_AUTH_AUTH0_KEY = 
+SOCIAL_AUTH_AUTH0_SECRET = 
+
+SOCIAL_AUTH_AUTH0_SCOPE = ["openid", "profile", "email"]
+
+AUTHENTICATION_BACKENDS = {
+    "social_core.backends.auth0.Auth0OAuth2",
+    "django.contrib.auth.backends.ModelBackend",
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -134,4 +156,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+LOGIN_URL = "/login/auth0"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
