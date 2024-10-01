@@ -7,7 +7,7 @@ from .utils.ui_helpers import greeting
 
 # Create your views here.
 def home(request):
-    username = "Karthik"
+    username = "Pritesh"
     data = {
         "greeting": greeting(user_name=username),
         "username": username,
