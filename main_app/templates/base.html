@@ -76,19 +76,19 @@
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
               <li class="nav-item active">
-                <a href="#home" aria-expanded="false">
+                <a href="/" aria-expanded="false">
                   <i class="fas fa-home"></i>
                   <p>Home</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#dashboard" aria-expanded="false">
+                <a href="/dashboard" aria-expanded="false">
                   <i class="fas fa-bullseye"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#settings" aria-expanded="false">
+                <a href="/settings" aria-expanded="false">
                   <i class="icon-settings"></i>
                   <p>Settings</p>
                 </a>
@@ -431,14 +431,16 @@
                   >
                     <div class="avatar-sm">
                       <img
-                        src="{% static 'assets/img/profile.jpg' %}"
+                        src="{{user_data.picture}}"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />
                     </div>
                     <span class="profile-username">
                       <span class="op-7">Hi,</span>
-                      <span class="fw-bold">{{username}}</span>
+
+                      <span class="fw-bold">{{user_data.username}}</span>
+
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -447,14 +449,14 @@
                         <div class="user-box">
                           <div class="avatar-lg">
                             <img
-                              src="{% static 'assets/img/profile.jpg' %}"
+                              src="{{user_data.picture}}"
                               alt="image profile"
                               class="avatar-img rounded"
                             />
                           </div>
                           <div class="u-text">
-                            <h4>Hizrian</h4>
-                            <p class="text-muted">hello@example.com</p>
+                            <h4>{{user_data.username}}</h4>
+                            <p class="text-muted">{{user_data.email}}</p>
                             <a
                               href="profile.html"
                               class="btn btn-xs btn-secondary btn-sm"
@@ -471,7 +473,7 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Account Setting</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="/logout">Logout</a>
                       </li>
                     </div>
                   </ul>
