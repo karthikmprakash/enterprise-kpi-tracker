@@ -78,6 +78,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "main_app.middleware.AuthenticationMiddleware",
 ]
 
 ROOT_URLCONF = "enterprise_kpi_tracker.urls"
@@ -93,6 +94,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "main_app.context_processors.user_info",
             ],
         },
     },

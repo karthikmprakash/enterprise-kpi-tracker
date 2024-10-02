@@ -76,19 +76,19 @@
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
               <li class="nav-item active">
-                <a href="#home" aria-expanded="false">
+                <a href="/" aria-expanded="false">
                   <i class="fas fa-home"></i>
                   <p>Home</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#dashboard" aria-expanded="false">
+                <a href="/dashboard" aria-expanded="false">
                   <i class="fas fa-bullseye"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#settings" aria-expanded="false">
+                <a href="/settings" aria-expanded="false">
                   <i class="icon-settings"></i>
                   <p>Settings</p>
                 </a>
@@ -438,7 +438,7 @@
                     </div>
                     <span class="profile-username">
                       <span class="op-7">Hi,</span>
-                      <span class="fw-bold">{{username}}</span>
+                      <span class="fw-bold">{{user_data.username}}</span>
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -453,8 +453,8 @@
                             />
                           </div>
                           <div class="u-text">
-                            <h4>{{username}}</h4>
-                            <p class="text-muted">{{email}}</p>
+                            <h4>{{user_data.username}}</h4>
+                            <p class="text-muted">{{user_data.email}}</p>
                             <a
                               href="profile.html"
                               class="btn btn-xs btn-secondary btn-sm"

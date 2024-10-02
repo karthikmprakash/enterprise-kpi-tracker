@@ -8,12 +8,12 @@ from django.urls import reverse
 from .utils.ui_helpers import greeting
 
 
-def check_authentication(request):
+def login(request):
+    return redirect(request.build_absolute_uri(reverse("callback")))
 
-    if request.user.is_authenticated:
-        return True
-    else:
-        return False
+
+def callback(request):
+    return redirect(request.build_absolute_uri(reverse("home")))
 
 
 def logout(request):
@@ -33,22 +33,14 @@ def logout(request):
 
 # Create your views here.
 def home(request):
-    if check_authentication(request):
-        user = request.user
-        auth0_user = user.social_auth.get(provider="auth0")
-        user_data = {
-            "user_id": auth0_user.uid,
-            "name": user.first_name,
-            "picture": auth0_user.extra_data["picture"],
-        }
-        data = {
-            "greeting": greeting(user_name=user.first_name),
-            "username": user.first_name,
-            "email": user.email,
-            "date": datetime.today().date(),
-            "tasks": {"completed": 2, "requires_attention": 5, "pending": 10},
-            "user_data": user_data,
-        }
-        return render(request, "home.html", context=data)
-    else:
-        return redirect("/login/auth0")
+    user = request.user
+    data = {
+        "greeting": greeting(user_name=user.first_name),
+        "date": datetime.today().date(),
+        "tasks": {"completed": 2, "requires_attention": 5, "pending": 10},
+    }
+    return render(request, "home.html", context=data)
+
+
+def dashboard(request):
+    return render(request=request, template_name="dashboard.html")
