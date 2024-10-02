@@ -34,6 +34,7 @@ def logout(request):
 # Create your views here.
 def home(request):
     user = request.user
+
     data = {
         "greeting": greeting(user_name=user.first_name),
         "date": datetime.today().date(),
